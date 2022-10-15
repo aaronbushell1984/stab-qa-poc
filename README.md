@@ -5,19 +5,19 @@
 #### Create Cluster
 
 ```shell
-eksctl create cluster -f stab-qa-poc.yaml
+eksctl create cluster -f qa-qa-poc.yaml
 ```
 
 ##### Delete Cluster
 
 ```shell
-eksctl delete cluster -n stab-qa-poc
+eksctl delete cluster -n qa-qa-poc
 ```
 
 #### Update Kube Config
 
 ```shell
-aws eks update-kubeconfig --name stab-qa-poc
+aws eks update-kubeconfig --name qa-qa-poc
 ```
 
 #### Check kubectl Connection and Pods Running
@@ -71,7 +71,7 @@ kubectl create namespace qa
 
 #### Deploy qa App of Apps
 
-- This will look for templates in the helm directory and deploy these also
+- This will look for templates in the stab directory to deploy
 
 ```shell
 kubectl apply --filename apps.yaml

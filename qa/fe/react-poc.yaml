@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-poc
+  labels:
+    app: react-poc
+  annotations:
+spec:
+  selector:
+    matchLabels:
+      app: react-poc
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: react-poc
+    spec:
+      containers:
+        - name: react-poc-sample
+          image: aaronbushell/react-poc-sample:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /secrets/
+            - name: config-volume
+              mountPath: /configs/
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: mysecret
+        - name: config-volume
+          configMap:
+            name: qa-config #name of our configmap object

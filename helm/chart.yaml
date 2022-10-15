@@ -1,4 +1,0 @@
-apiVersion: v1
-description: Quality Assurance Environment
-name: qa
-version: "0.1.0"
