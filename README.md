@@ -9,13 +9,13 @@
 #### Create Cluster
 
 ```shell
-eksctl create cluster -f qa-qa-poc.yaml
+eksctl create cluster -f stab-qa-poc.yaml
 ```
 
 #### Update Kube Config
 
 ```shell
-aws eks update-kubeconfig --name qa-qa-poc
+aws eks update-kubeconfig --name stab-qa-poc
 ```
 
 #### Check kubectl Connection and Pods Running
@@ -78,5 +78,5 @@ kubectl apply --filename apps.yaml
 ##### Delete Cluster
 
 ```shell
-eksctl delete cluster -n qa-qa-poc
+eksctl delete cluster -n stab-qa-poc
 ```
