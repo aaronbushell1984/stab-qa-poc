@@ -34,7 +34,7 @@ managedNodeGroups:
     instanceSelector: {}
     instanceType: t2.medium
     labels:
-      alpha.eksctl.io/cluster-name: qa-qa-poc
+      alpha.eksctl.io/cluster-name: stab-qa-poc
       alpha.eksctl.io/nodegroup-name: ng-5937a294
     maxSize: 1
     minSize: 1
@@ -55,7 +55,7 @@ managedNodeGroups:
     volumeThroughput: 125
     volumeType: gp3
 metadata:
-  name: qa-qa-poc
+  name: stab-qa-poc
   region: eu-west-2
   version: "1.23"
 privateCluster:
