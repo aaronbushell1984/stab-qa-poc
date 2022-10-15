@@ -1,17 +1,15 @@
 # QA POC
 
+### Pre-Requisites
+
+
+
 ### Commands
 
 #### Create Cluster
 
 ```shell
 eksctl create cluster -f qa-qa-poc.yaml
-```
-
-##### Delete Cluster
-
-```shell
-eksctl delete cluster -n qa-qa-poc
 ```
 
 #### Update Kube Config
@@ -71,8 +69,14 @@ kubectl create namespace qa
 
 #### Deploy qa App of Apps
 
-- This will look for templates in the stab directory to deploy
+- This will look for templates in the qa directory to deploy
 
 ```shell
 kubectl apply --filename apps.yaml
+```
+
+##### Delete Cluster
+
+```shell
+eksctl delete cluster -n qa-qa-poc
 ```
