@@ -30,7 +30,7 @@ sudo ./aws/install
 aws configure
 ```
 
-> :warning: **Provisioning services on AWS will charge**
+> :warning: WARNING: **Provisioning services on AWS will charge** :warning:
 > - Approximately $10 for two days at time of writing
 > - Close any unneeded services
 > - Gain authorisation from bill payer
@@ -123,7 +123,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
  - password (from above)
 
-> :warning: **Update your password immediately by accessing Userinfo and then Update Password**
+> :warning: WARNING: **Update your password immediately by accessing Userinfo and then Update Password** :warning:
 
 ---
 
@@ -139,7 +139,13 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 kubectl apply --filename apps.yaml
 ```
 
-- Monitor progress for completion in Argo and AWS UI
+### Watch in [Argo](https://localhost:8080/)
+
+![image](https://user-images.githubusercontent.com/67497207/196037467-4577f99b-700d-4f93-89ba-934ae9f384ae.png)
+
+### Watch in [AWS](https://eu-west-2.console.aws.amazon.com/)
+
+![image](https://user-images.githubusercontent.com/67497207/196037652-a1d2977b-55d5-4bb5-859b-214d750ea8b0.png)
 
 #### Access Application Locally
 
@@ -150,15 +156,21 @@ kubectl apply --filename apps.yaml
 kubectl port-forward <name-of-deployment> -n qa 1337:80
 ```
 
-- Navigate to: [localhost:1337](http://localhost:1337/)
-
-> :information_source: **<name-of-deployment> is available in both UI's**
+> :information_source: INFORMATION: **The name-of-deployment is available in both UI's** :information_source:
 
 #### Get Name Of Deployment
+
+- If name is required quickly from the command line you can run:
 
 ```shell
 kubectl get pods --show-labels -n qa
 ```
+
+### See POC running!
+
+- Navigate to: [localhost:1337](http://localhost:1337/)
+
+![image](https://user-images.githubusercontent.com/67497207/196037781-8941248b-418a-4886-a947-064231143812.png)
 
 ---
 
