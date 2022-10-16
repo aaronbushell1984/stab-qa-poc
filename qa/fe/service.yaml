@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-poc-service
+  name: react-poc
 spec:
   selector:
-    app: react-poc
+    app.kubernetes.io/name: react-poc
   ports:
-    - protocol: TCP
-      port: 1337 # service port inside cluster
+    - port: 1337 # service port inside cluster
       targetPort: 1337 # app bind port
