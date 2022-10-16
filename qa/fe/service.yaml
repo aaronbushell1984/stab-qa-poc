@@ -6,5 +6,5 @@ spec:
   selector:
     app.kubernetes.io/name: react-poc
   ports:
-    - port: 1337 # service port inside cluster
-      targetPort: 1337 # app bind port
+    - port: 80 # service port inside cluster
+      targetPort: 80 # app bind port
