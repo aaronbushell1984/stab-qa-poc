@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-poc-service
+spec:
+  selector:
+    app: react-poc
+  ports:
+    - protocol: TCP
+      port: 1337 # service port inside cluster
+      targetPort: 1337 # app bind port
