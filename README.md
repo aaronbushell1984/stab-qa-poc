@@ -1,12 +1,36 @@
 # QA POC
 
+---
+
 ### Pre-Requisites
 
+#### [Install eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
 
+```shell
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+```
 
-### Commands
+#### [Install aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
-#### Create Cluster
+```shell
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+#### Authenticate with AWS
+
+```shell
+
+```
+
+---
+
+### Setup and Tear-Down
+
+#### [Create Cluster](https://eksctl.io/introduction/)
 
 ```shell
 eksctl create cluster -f stab-qa-poc.yaml
@@ -24,7 +48,23 @@ aws eks update-kubeconfig --name stab-qa-poc
 kubectl get pods --all-namespaces
 ```
 
-#### Install Argocd to Cluster
+#### Create qa Namespace
+
+```shell
+kubectl create namespace qa
+```
+
+##### Delete Cluster (as required)
+
+```shell
+eksctl delete cluster -n stab-qa-poc
+```
+
+---
+
+### ArgoCD
+
+#### [Install Argocd to Cluster](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 
 ```shell
 kubectl create namespace argocd
@@ -61,22 +101,14 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 > :warning: **Update your password immediately**
 
-#### Create qa Namespace
+---
 
-```shell
-kubectl create namespace qa
-```
+### Deploy Applications
 
-#### Deploy qa App of Apps
+#### App of Apps - qa
 
 - This will look for templates in the qa directory to deploy
 
 ```shell
 kubectl apply --filename apps.yaml
-```
-
-##### Delete Cluster
-
-```shell
-eksctl delete cluster -n stab-qa-poc
 ```
