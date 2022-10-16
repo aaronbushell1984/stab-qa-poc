@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: react-poc-sample
-          image: aaronbushell/react-poc-sample:latest
+          image: aaronbushell/react-poc_sample-prod:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 1337
