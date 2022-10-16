@@ -25,7 +25,7 @@ spec:
           image: aaronbushell/react-poc-sample:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 1337
           resources:
             requests:
               memory: "64Mi"
