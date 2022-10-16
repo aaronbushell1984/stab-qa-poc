@@ -4,6 +4,16 @@ Estimated Time To Complete: 60 mins
 
 ---
 
+These instructions will:
+- Launch a cluster in Amazon Elastic Kubernetes Service (EKS):
+- Run a proof of concept (POC) Quality Assurance (qa) environment
+- Deploy the applications defined in qa directory of this repo using GitOps principles
+- Immediately update the environment with any code changes to the main branch of this repository
+
+The [react-poc](https://github.com/aaronbushell1984/react-poc) repository holds the react starter app poc deployed by this repository
+
+---
+
 ### Pre-Requisites
 
 #### [Install eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
